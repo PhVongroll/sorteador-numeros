@@ -3,6 +3,16 @@ function sortear() {
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
+    if (de >= ate) {
+        alert('O valor "De" deve ser menor que o valor "Até".');
+        return;
+    }
+
+    if (quantidade > (ate - de + 1)) {
+        alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        return;
+    }
+
     let sorteados = [];
     let numero;
 
@@ -23,7 +33,6 @@ function sortear() {
 
 function sortearNumero(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
 
 function alterarStatusBotao() {
